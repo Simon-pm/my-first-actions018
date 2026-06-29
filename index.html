@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My First GitHub Actions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 My First GitHub Actions</h1>
+      <p class="subtitle">Deployed automatically via CI/CD Pipeline</p>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2>✅ Deploy สำเร็จแล้ว!</h2>
+        <p>เว็บไซต์นี้ถูก Deploy อัตโนมัติผ่าน <strong>GitHub Actions</strong> ไปยัง <strong>GitHub Pages</strong></p>
+      </div>
+
+      <div class="card">
+        <h2>📋 รายละเอียดการทำงาน</h2>
+        <ul>
+          <li>✔ สร้าง Workflow ด้วย GitHub Actions</li>
+          <li>✔ ใช้ actions/checkout เพื่อดึงโค้ด</li>
+          <li>✔ Deploy ไปยัง GitHub Pages อัตโนมัติ</li>
+        </ul>
+      </div>
+
+      <div class="card" id="info-card">
+        <h2>⏰ ข้อมูลการ Deploy</h2>
+        <p id="deploy-time">กำลังโหลด...</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Created with ❤️ using GitHub Actions CI/CD</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

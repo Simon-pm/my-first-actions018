@@ -1,0 +1,40 @@
+name: Deploy Static Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# กำหนด Permission สำหรับการ Deploy
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ขั้นตอนที่ 1: ดึงโค้ดจาก Repository
+      # ให้เปลี่ยน "Somnuek-001" เป็นชื่อของคุณ-รหัส 3 ตัวหลัง เช่น Somchai-123
+      - name: Checkout code (actions/Somnuek-001)
+        uses: actions/checkout@v3
+
+      # ขั้นตอนที่ 2: แสดงไฟล์ที่จะ Deploy (ตรวจสอบ)
+      - name: List files to deploy
+        run: |
+          echo "📁 Files ready for deployment:"
+          ls -la
+          echo ""
+          echo "✅ index.html, style.css, script.js are ready!"
+
+      # ขั้นตอนที่ 3: Deploy ไปยัง GitHub Pages (gh-pages branch)
+      - name: Deploy to GitHub Pages (actions/gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
